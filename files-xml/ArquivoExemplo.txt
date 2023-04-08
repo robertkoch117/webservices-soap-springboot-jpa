@@ -1,0 +1,2 @@
+GetCustomerDetailRequest -> GetCustomerDetailResponse
+input -> 123	response -> id = 123, name = Bob, phone = 999, email = bob.@gmail.com
