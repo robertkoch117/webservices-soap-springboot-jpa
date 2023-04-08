@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.robertkoch.soap.webservices.customersadministration.bean.Customer;
 import com.robertkoch.soap.webservices.customersadministration.service.CustomerDetailService;
+import com.robertkoch.soap.webservices.customersadministration.soap.exception.CustomerNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -31,7 +32,7 @@ public class CustomerDetailEndpoint {
 
 		Customer customer = service.findById(req.getId());
 		if(customer == null) {
-			throw new Exception("Invalid Customer id"+req.getId());
+			throw new CustomerNotFoundException("Invalid Customer id "+req.getId());
 		}
 		return convertToGetCustomerDetailResponse(customer);
 	}
